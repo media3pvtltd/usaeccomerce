@@ -1,0 +1,97 @@
+<div class="full_wrapper">
+      <div class="site_container">
+         <div class="product_full_wrap">
+          <div class="signupinner">
+            <h1>Login</h1>
+            
+          <%= form_tag autentication_create_path   do |f| %>
+            <table cellpadding="0" cellspacing="0" class="formtable" width="100%">
+                 <tbody>
+                 <tr>
+                   <td colspan="2" align="center" class="textsucess"> 
+                      <% unless flash[:notice].nil? %>
+                        <%= flash[:notice]  %>
+                      <% end %>
+                      <% unless flash[:error].nil? %>
+                       <label style="color:red;"><%= flash[:error]  %></label> 
+                      <% end %>
+                   </td>
+                 </tr>
+                 <tr>
+                     <td width="10%">Email:</td>
+                     <td width="90%">
+                      <%= text_field_tag 'email',"", :id => "txtEmail" %>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td width="10%">Password:</td>
+                     <td width="90%"><%= password_field_tag 'password',"", :id => "password" %></td>
+                 </tr>
+         
+                
+
+                 <tr>
+                      <td></td>
+                     <td colspan="2">
+                       <%= submit_tag "Login", :onclick => 'Javascript:checkEmail();' %>
+                       <label style="margin-left:15px;font-size:16px;">Are you new user? Click <%= link_to 'Register ', autentication_index_path  %>Here</label>
+                     </td>
+                     
+                     
+                 </tr>
+
+           </tbody></table>
+           <% end -%>
+          </div>
+         </div><!--product_full_wrap-->
+      
+      <!-- <div class="product_right_wrap">
+      
+       <div class="merchant_wrap">
+        
+         <h3>Not A Merchant Yet?</h3>
+         <p>Subscribe to get your business Featured on your Tameion, Inc./Clikarro.com Website.</p>
+       
+       </div><!--merchant_wrap-->
+
+      <!--  <div class="merchant_wrap1">
+        
+         <h4>Compare Products</h4>
+         <p>You have no Products</p> -->
+       
+       <!-- </div> --><!--merchant_wrap1-->
+      
+     <!--  <h3>Featured Merchants</h3> -->
+      <!-- <div style="margin-top:10px;"> -->
+
+      <%#= image_tag 'mexican_food_29.png'%></div>
+       
+      
+      
+     <!--  </div> --> 
+     <div class="clear_fix"></div>
+     
+      </div>
+     </div>
+     
+     <div class="clear_fix"></div>
+
+     <script language="javascript">
+
+function checkEmail() {
+
+    var email = document.getElementById('txtEmail');
+    var password = document.getElementById('password').value;
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+     if (!filter.test(email.value)) {
+    alert('Please provide a valid email address');
+    email.focus;
+    return false;
+     }
+      if (password == "")
+      {
+        alert('Please provide password');
+       return false;
+      }
+}</script>

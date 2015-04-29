@@ -1,0 +1,89 @@
+<header>
+ <div class="site_container">
+
+    <div class="heddr_logo">
+    
+       
+    </div>
+    
+    <div class="heddr_right">
+
+      <div class="contact_num"><b>Topics In Software Engineering Projects</b></span></div><!--contact_num-->
+    
+      <div class="search_full_wrap">
+      
+           <div class="search_wrap"></div>
+           <div class=""><%if current_user.nil? %>
+           <h3> <%= 'Welcome Guest,' %></h3>
+           <%else %>
+
+          <h3> Welcome  <%=current_user.firstname %>,</h3>
+          <%end %>
+           </div>
+           <div class="clear_fix"></div>
+      
+      </div><!--search_full_wrap-->
+
+      <div class="clear_fix"></div>
+
+
+         <ul class="menu_list">
+              
+              <li><a href="#"><%= image_tag 'social_icons_03.png'%>My Cart</a></li>
+              <li><a href="#">Check out</a></li>
+              <li><%if current_user.nil? %>
+
+              <a href="<%= autentication_index_path %>">
+              
+              <%='Register' %></a>
+              <%else %>
+              <a href="<%=home_index_path %>">
+              <%='My Profile' %></a>
+              <%end %>
+
+             </li>
+              
+              <% unless current_user.nil? %>
+              <li><a href="<%= autentication_logout_path  %>">Logout</a></li>
+              <% else %>
+              <li><a href="<%#= root_path%>">login</a></li>
+              <% end %>
+              
+         </ul> 
+              <div class="clear_fix"></div>
+     
+    
+    </div><!--heddr_right-->
+
+
+   <div class="clear_fix"></div>
+
+ </div>
+</header>
+
+<div class="clear_fix"></div>   
+
+
+   <!--  <nav>
+        <div class="site_container">
+        
+          <ul class="nav_list">
+          
+            <li><a href="#" class="active">Shoppers Click Here</a></li>
+            <li><a href="#">Sell Your Coupon</a></li>
+            <li><a href="#">Merchant Validations</a></li>
+          
+          
+          </ul>
+        
+        <div class="clear_fix"></div>
+        
+        
+        </div>
+    </nav>
+     -->
+<div class="clear_fix"></div>    
+
+
+
+<div class="clear_fix"></div>

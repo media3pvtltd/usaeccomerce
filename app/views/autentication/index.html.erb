@@ -1,0 +1,139 @@
+<script language="javascript">
+
+function checkEmail1() {
+
+    var email = document.getElementById('txtEmail1');
+    var name = document.getElementById('firstname').value;
+    var name2 = document.getElementById('lastname').value;
+    var password = document.getElementById('password').value;
+    var password2 = document.getElementById('confirmpassword').value;
+    var phonenumber = document.getElementById('phonenumber').value;
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      
+      if (name == "")
+      {
+        alert('Please provide first name');
+       return false;
+      }
+
+      if (name2 == "")
+      {
+        alert('Please provide last name');
+       return false;
+      }
+
+      if (!filter.test(email.value)) {
+    alert('Please provide a valid email address');
+    email.focus;
+    return false;
+     }
+
+      if (password == "")
+      {
+        alert('Please provide password');
+       return false;
+      }
+       if (password2 == "")
+      {
+        alert('Please provide confirm password');
+       return false;
+      }
+      if (phonenumber == "")
+      {
+        alert('Please provide phonenumber');
+       return false;
+      }
+
+     
+}</script>
+
+ <div class="full_wrapper">
+      <div class="site_container">
+         <div class="product_full_wrap">
+          <div class="signupinner">
+            <h1>Signup</h1>
+            <%= form_tag autentication_usercreate_path   do |f| %>
+            <table cellpadding="0" cellspacing="0" class="formtable" width="100%">
+                 <tbody>
+                 <tr>
+                    <td colspan="2" align="center" class="textsucess"> 
+                      <% unless flash[:notice].nil? %>
+                        <%= flash[:notice]  %>
+                      <% end %>
+                      <% unless flash[:error].nil? %>
+                       <label style="color:red;"><%= flash[:error]  %></label> 
+                      <% end %>
+                   </td>
+                 </tr>
+                 <tr>
+                     <td width="10%">First Name:</td>
+                     <td width="90%"><%= text_field_tag 'firstname' , "", :id => 'firstname' %></td>
+                 </tr>
+                 <tr>
+                     <td width="10%">Last Name:</td>
+                     <td width="90%"><%= text_field_tag 'lastname' , "", :id => 'lastname' %></td>
+                 </tr>
+         
+                 <tr>
+                     <td>Email:</td>
+                     <td><%= text_field_tag 'email',"", :id =>'txtEmail1' %></td>
+                 </tr>
+                 <tr>
+                     <td>Password:</td>
+                     <td><%= password_field_tag 'password',"", :id =>'password' %></td>
+                 </tr>
+                 <tr>
+                     <td>Conform Password:</td>
+                     <td><%= password_field_tag 'conformpassword',"", :id =>'confirmpassword' %></td>
+                 </tr>
+              <tr>
+                     <td valign="top">Address:</td>
+                     <td><%= text_area_tag 'address' %></td>
+                 </tr>
+                 <tr>
+                     <td>Phone Number:</td>
+                     <td><%= text_field_tag 'phonenumber' , "", :id =>'phonenumber'  %></td>
+                 </tr>
+                 
+                 <tr>
+                     <td></td>
+                     <td>
+                      <%= submit_tag "Submit", :onclick => 'Javascript:checkEmail1();' %>
+                     </td>
+                 </tr>
+
+           </tbody></table>
+           <% end -%>
+          </div>
+         </div><!--product_full_wrap-->
+      
+      <!-- <div class="product_right_wrap">
+      
+       <div class="merchant_wrap">
+        
+         <h3>Not A Merchant Yet?</h3>
+         <p>Subscribe to get your business Featured on your Tameion, Inc./Clikarro.com Website.</p>
+       
+       </div><!--merchant_wrap-->
+
+      <!--  <div class="merchant_wrap1">
+        
+         <h4>Compare Products</h4>
+         <p>You have no Products</p> -->
+       
+      <!--  </div> --><!--merchant_wrap1-->
+      
+      <!-- <h3>Featured Merchants</h3>
+      <div style="margin-top:10px;"> -->
+
+      <%#= image_tag 'mexican_food_29.png'%><!-- </div>
+       
+      
+      
+      </div> --> 
+     <div class="clear_fix"></div>
+     
+      </div>
+     </div>
+     
+     <div class="clear_fix"></div>
