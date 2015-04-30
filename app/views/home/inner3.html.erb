@@ -1,5 +1,7 @@
 <div class="full_wrapper">
       <div class="site_container">
+      <%= form_for @cart,:url => {:action => 'innercreate3'} do |f| %>
+
         <%#=form_for @cart, :url => {:action => 'create'} do |f| %>
       <div class="betcam_wrap">
       <a href="<%=home_index_path%>" class="active">Home</a>
@@ -21,15 +23,42 @@
               <h3>Ingredients:</h3>
               <ul class="product_lists">
               
-                <li><%= image_tag 'sugar.jpg', :style => 'height:100px'%><br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="" value="" style="  width: 22px;">
+                <li>
+                    <%= image_tag 'sugar.jpg', :style => 'height:100px'%><br>
+                    <span>Add to cart:</span>
+                    <%= check_box("product", "0", { },'sugar.jpg' ) %>
+                    <br>
+                    <span>Quantity:</span>
+                  
+                    <%= text_field_tag 'quant[0]','', :style => "width:22px;" %>
+                    <span>Price:</span>
+                    <%= text_field_tag 'price[0]','12', :style => "width:22px;" %>
+                    <%= hidden_field_tag 'user[0]',current_user.id %>
                 </li>
-                <li><%= image_tag 'milk.jpg', :style => 'height:100px'%><br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li>
-                <li><%= image_tag 'ginger.jpg', :style => 'height:100px'%><br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li>
-                <li><%= image_tag 'tea_powder.jpg', :style => 'height:100px'%><br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li>
+                <li>
+                    <%= image_tag 'milk.jpg', :style => 'height:100px'%><br>
+                    <span>Add to cart:</span>
+                    <%= check_box("product", "1", { },'milk' ) %>
+                    <br>
+                    <span>Quantity:</span>
+                  
+                    <%= text_field_tag 'quant[1]','', :style => "width:22px;" %>
+                    <span>Price:</span>
+                    <%= text_field_tag 'price[1]','12', :style => "width:22px;" %>
+                    <%= hidden_field_tag 'user[1]',current_user.id %>
+                </li>
+                <li>
+                    <%= image_tag 'tea_powder.jpg', :style => 'height:100px'%><br>
+                    <span>Add to cart:</span>
+                    <%= check_box("product", "2", { },'tea_powder.jpg' ) %>
+                    <br>
+                    <span>Quantity:</span>
+                  
+                    <%= text_field_tag 'quant[2]','', :style => "width:22px;" %>
+                    <span>Price:</span>
+                    <%= text_field_tag 'price[2]','12', :style => "width:22px;" %>
+                    <%= hidden_field_tag 'user[2]',current_user.id %>
+                </li>
                 <!-- <li><img src="<%#= getpath @homes.sub5_id unless @homes.sub5_id.nil?%> " alt="" ><br>
                 <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li> -->
               <div class="clear_fix"></div>
@@ -47,9 +76,10 @@
                    
                    <div class="price_value">$<%#=@homes. price%> <span>$27</span></div>
                    <div class="price_discount">Extra $5 Off Ends 12/1</div>
-                   <div class="buy_wrap"><a href="">BUY</a></div>
+                   <div><%= submit_tag 'Buy',:class => 'buy_wrap'%></div>
+                   </li>
                    <!-- <div class="give_gift"><a href="#"><%#= image_tag 'service_center_10.png'%>GIVE AS A GIFT</a></div> -->
-                   <%= submit_tag 'Create an account'%>
+                   
                     
                    <!-- <ul class="pricevalue_list1">
 
@@ -151,6 +181,6 @@
      <div class="clear_fix"></div>
      
      </div><!--product_full_wrapper-->
-     <%#end%>
+     <%end%>
       </div>
      </div>

@@ -1,6 +1,4 @@
 <div class="site_container">
-
-
            <div class="shipping_table">
               <%#@homes.each do |f| %>
                 
@@ -14,22 +12,49 @@
                  <div class="cart_delete"></div>
                  <div class="clear_fix"></div>
                  </div><!--cart_row-->
-                
+                 
+              <% unless  @cartitems.empty? %>
+                  <% @finaltotal=0 %> 
+                  <% @cartitems.each do |f| %>
+                     
+                   <% if f.product!= "0" %>
+                      
+                     <div class="cart_img1">
+                       <%= image_tag f.product, :style =>"width:50px;" %><br>
+                     <a href="<%= home_productdele_path(f.id) %>"><span>Remove</span></a></div>
+                     <div class="cart_name1"><br/></div>
+                     <div class="cart_edit1"></div>
+                     <div class="cart_unitprice1">$
+                     <%= number_with_precision(f.price, precision: 2) %>
+                     </div>
 
-                 <div class="cart_img1"><img src="<%#= getpath f.sub1_id unless f.sub1_id.nil?%> " alt="" ><br>
-                 <a href=""><span>Remove</span></a></div>
-                 <div class="cart_name1">Product name<br/>SKU : MAG090184_p1</div>
-                 <div class="cart_edit1"></div>
-                 <div class="cart_unitprice1">$50.00</div>
-                 <div class="cart_qty1"><input type="text"  placeholder="1"/></div>
-                 <div class="cart_subtotal1">$50.00</div>
-                 <div class="cart_delete1"><img src="images/cart_imgs_06.png" /></div>
-                 <div class="clear_fix"></div>
+                     <div class="cart_qty1"><%= f.quantity %></div>
+                     <div class="cart_subtotal1">
+                      <% @finaltotal=@finaltotal+f.price*f.quantity  %>
+                      $<%= number_with_precision(f.price*f.quantity, precision: 2) %>
+
+                     </div>
+                     <div class="clear_fix"></div>
+                   <% end %>
+                   <% end %>
+              <% else %>
+                   <div class="cart_img1">
+                       <br>
+                     <a href=""><span></span></a></div>
+                     <div class="cart_name1"> No products selected...</div>
+                     <div class="cart_edit1"></div>
+                     <div class="cart_unitprice1"></div>
+                     <div class="cart_qty1"></div>
+                     <div class="cart_subtotal1"></div>
+                     <div class="clear_fix"></div>
+              <% end %>
+                 
                  
                  <div class="cart_row1">
                 
                  <div class="cont_shop_btn">
-                     <input type="submit" value="Continue Shopping">
+                     
+                     <a href="<%= home_index_path %>" class="cont_shop">Continue Shopping</a>
                  </div><!--cont_shop_btn-->
                  
                  <div class="cont_shop_btn1">
@@ -71,10 +96,13 @@
                
                <div class="cartinner_right">
                      <ul class="subtoatallis">
-                      <li><span>Subtotal</span>$50.00</li>
+                      <li></li>
                      </ul>
                      <ul class="subtoatallis1">
-                      <li><span>Grand Total</span>$50.00</li>
+                      <li><span>Final Total</span>
+                        
+                        <%= number_with_precision(@finaltotal, precision: 2) %>
+                      </li>
                      </ul>
                       <input type="submit" value="Save in Cart" />
                       <div class="clear_fix"></div>

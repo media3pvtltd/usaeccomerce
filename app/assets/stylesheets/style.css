@@ -594,3 +594,20 @@ border-color: gray;
 	font-size: 18px;
 	color: green;
 }
+.cont_shop
+{
+	background: linear-gradient(to bottom, #7f7f7f 0%, #818181 0%, #858585 0%, #787878 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f7f7f', endColorstr='#787878', GradientType=0 );
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  padding: 5px 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+  float: left;
+}

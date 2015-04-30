@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get 'home/index'
-  get 'home/inner'
+  get 'home/inner1'
   get 'home/inner2'
 
   get 'home/inner3'
 
   get 'home/inner4'
-  
   
   # This line mounts Refinery's routes at the root of your application.
   # This means, any requests to the root URL of your application will go to Refinery::PagesController#home.
@@ -25,7 +24,11 @@ Rails.application.routes.draw do
   get 'autentication/logout'
   post 'autentication/create'
   get 'home/cart'
-  post 'home/innercreate'
+  post 'home/innercreate1'
+  post 'home/innercreate2'
+  post 'home/innercreate3'
+  post 'home/innercreate4'
+  get 'home/productdele/:id' => 'home#productdele', as: 'home_productdele'
   #mount Refinery::Core::Engine, at: Refinery::Core.mounted_path
   #mount Refinery::Core::Engine, :at => '/cms'
   
