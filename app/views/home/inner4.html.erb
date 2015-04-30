@@ -9,7 +9,8 @@
       <a href="#">Chattanooga</a>
       <span><%#= image_tag 'right_arrow_03.png'%></span>
       <a href="#">Dannys Service Center zxfsz</a> </div> -->
-      
+<%= form_for @cart,:url => {:action => 'innercreate'} do |f| %>
+
       <div class="product_full_wrapper">
       
          <div class="product_inner_wrap">
@@ -21,15 +22,55 @@
               <h3>Ingredients:</h3>
               <ul class="product_lists">
               
-                <li><%= image_tag 'milk.jpg'%><br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="" value="" style="  width: 22px;">
+                <li>
+                  <%= image_tag 'milk.jpg', :style => 'height:100px'%>
+                  <br>
+                  <span>Add to cart:</span>
+                  <%= check_box("product", "0", { },'milk.jpg' ) %>
+                  <br>
+                  <span>Quantity:</span>
+                  
+                  <%= text_field_tag 'quant[0]','', :style => "width:22px;" %>
+                  <span>Price:</span>
+                  <%= text_field_tag 'price[0]','12', :style => "width:22px;" %>
+                  <%= hidden_field_tag 'user[0]',current_user.id %>
                 </li>
-                <li><%= image_tag 'apple.jpg'%><br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li>
-                <li><%= image_tag 'orange.jpg'%> <br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li>
-                <li><%= image_tag 'sugar.jpg'%> <br>
-                <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li>
+                <li>
+                  <%= image_tag 'apple.jpg', :style => 'height:100px'%>
+                  <br>
+                  <span>Add to cart:</span>
+                  <%= check_box("product", "1", { },'apple.jpg' ) %>
+                  <br>
+                  <span>Quantity:</span>
+                 <%= text_field_tag 'quant[1]','', :style => "width:22px;" %>
+                 <span>Price:</span>
+                 <%= text_field_tag 'price[1]','12', :style => "width:22px;" %>
+                 <%= hidden_field_tag 'user[1]',current_user.id %>
+                </li>
+                <li>
+                  <%= image_tag 'orange.jpg', :style => 'height:100px'%> 
+                  <br>
+                  <span>Add to cart:</span>
+                  <%= check_box("product", "2", { },'orange.jpg' ) %>
+                  <br>
+                  <span>Quantity:</span>
+                  <%= text_field_tag 'quant[2]','', :style => "width:22px;" %>
+                  <span>Price:</span>
+                  <%= text_field_tag 'price[2]','12', :style => "width:22px;" %>
+                  <%= hidden_field_tag 'user[2]',current_user.id %>
+                </li>
+                <li>
+                  <%= image_tag 'sugar.jpg', :style => 'height:100px'%> 
+                  <br>
+                  <span>Add to cart:</span>
+                  <%= check_box("product", "3", { },'sugar.jpg' ) %>
+                  <br>
+                  <span>Quantity:</span>
+                  <%= text_field_tag 'quant[3]','', :style => "width:22px;" %>
+                  <span>Price:</span>
+                  <%= text_field_tag 'price[3]','12', :style => "width:22px;" %>
+                  <%= hidden_field_tag 'user[3]',current_user.id %>
+                </li>
                 <!-- <li><%#= image_tag '.jpg'%> <br>
                 <span>Add to cart:</span><input type="checkbox" name="check" value=""><br><span>Quantity:</span><input type="text" name="quantity" value="" style="  width: 22px;"></li> -->
               <div class="clear_fix"></div>
@@ -47,32 +88,8 @@
                    
                    <div class="price_value">$<%#=@homes. price%> 30<span>$50</span></div>
                    <div class="price_discount">Extra $5 Off Ends 12/1</div>
-                   <div class="buy_wrap"><a href="">BUY</a></div>
-                   <!-- <div class="give_gift"><a href="#"><%#= image_tag 'service_center_10.png'%>GIVE AS A GIFT</a></div> -->
-                   <%#= submit_tag 'Create an account'%>
-                    
-                   <!-- <ul class="pricevalue_list1">
-
-                    <li>
-                        <div style="font-weight:bold; color:#000;">Value</div>
-                        <div style="font-weight:400; color:#000;">$36.00</div>
-                     </li>   
-
-
-                    <li>
-                        <div style="font-weight:bold; color:#000;">Discount</div>
-                        <div style="font-weight:400; color:#000;">60%</div>
-                     </li>   
-
-
-                    <li>
-                        <div style="font-weight:bold; color:#000;">You Save</div>
-                        <div style="font-weight:400; color:#000;">$36.00</div>
-                     </li>   
-                    <div class="clear_fix"></div>
-                     
-                   </ul> -->
-
+                   <div><%= submit_tag 'Buy',:class => 'buy_wrap'%></div>
+                   
                   </li>
                 
 
@@ -114,43 +131,11 @@
             <h4>The Fine Print</h4>
             <p><%#= raw(@homes.description)  %></p>
             
-      
-         
-     
-
-           
-     
-     
-        </div><!--product_inner_wrap-->
-      
-      <!-- <div class="product_right_wrap">
-      
-       <div class="merchant_wrap">
-        
-         <h3>Not A Merchant Yet?</h3>
-         <p>Subscribe to get your business Featured on your Tameion, Inc./Clikarro.com Website.</p>
-       
-       </div><!--merchant_wrap-->
-
-      <!--  <div class="merchant_wrap1">
-        
-         <h4>Compare Products</h4>
-         <p>You have no Products</p> -->
-       
-       <!-- </div> --><!--merchant_wrap1-->
-      
-      <!-- <h3>Featured Merchants</h3>
-      <div style="margin-top:10px;"> -->
-
-      <%#= image_tag 'mexican_food_29.png'%></div>
-       
-      
-      
-     <!--  </div>  --><!--product_right_wrap-->
+        </div>
       
      <div class="clear_fix"></div>
      
      </div><!--product_full_wrapper-->
-     <%#end%>
+     <% end %>
       </div>
      </div>

@@ -1,15 +1,10 @@
 class HomeController < ApplicationController
 	layout 'home'
-	
     before_action :current_user
-
-	def index
-		#@homes = Refineryhome.order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
-	end
 
 	def inner1
 
-		 #@homes=Refineryhome.find_by_id(params[:id])
+		 
 	end
 
 	def inner2
@@ -21,16 +16,30 @@ class HomeController < ApplicationController
 	end
 
 	def inner4
+		@cart=Cart.new()	
+	end
+
+	def innercreate
+		
+		count=params[:product].count-1
+		
+
+		(0..count).map {  |f| 
+
+			@cart=Cart.new(:product => params[:product]["#{f}"],:quantity => params['quant']["#{f}"],:price => params['price']["#{f}"],:user_id => params[:user]["#{f}"])
+			@cart.save
+
+		} 
+		
+		
+		redirect_to home_cart_path
 		
 	end
 
 	def cart
 		
 	end
-	def index
-		#@homes = Refineryhome.order(created_at: :desc).paginate(:page => params[:page], :per_page => 4)
-	end
-
+	
 	def inner
 
 		 #@homes=Refineryhome.find_by_id(params[:id])
@@ -49,18 +58,6 @@ class HomeController < ApplicationController
 		# #redirect_to forum_topic_path(params[:refforum_id])
 		# redirect_to home_cart_path
 		
-		
-	end
-
-	def cart
-		#@homes=Refineryhome.all
-	end
-
-	private
-
-	def req_params
-
-		#params.permit(:product_id, :product, :quantity)
 		
 	end
 

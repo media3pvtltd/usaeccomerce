@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'autentication/logout'
   post 'autentication/create'
   get 'home/cart'
-  post 'home/create'
+  post 'home/innercreate'
   #mount Refinery::Core::Engine, at: Refinery::Core.mounted_path
   #mount Refinery::Core::Engine, :at => '/cms'
   

@@ -46,7 +46,7 @@
               <% unless current_user.nil? %>
               <li><a href="<%= autentication_logout_path  %>">Logout</a></li>
               <% else %>
-              <li><a href="<%#= root_path%>">login</a></li>
+              <li><a href="<%= root_path%>">login</a></li>
               <% end %>
               
          </ul> 
