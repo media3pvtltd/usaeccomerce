@@ -1,6 +1,39 @@
+<script language="javascript">
+
+function validateform() {
+
+    alert();
+    var quan = document.getElementById('quantity').value;
+    var quan2 = document.getElementById('quantity2').value;
+    var quan3 = document.getElementById('quantity3').value;
+    var quan4 = document.getElementById('quantity4').value;
+
+      if (quan== "")
+      {
+        alert('Please provide first name');
+       return false;
+      }
+      if (quan2 == "")
+      {
+        alert('Please provide first name');
+       return false;
+      }
+       if (quan3 == "")
+      {
+        alert('Please provide first name');
+       return false;
+      }
+        if (quan4 == "")
+      {
+        alert('Please provide first name');
+       return false;
+      }
+}</script>
+
+
 <div class="full_wrapper">
       <div class="site_container">
-         <%= form_for @cart,:url => {:action => 'innercreate1'} do |f| %>
+         <%= form_tag home_innercreate1_path   do |f| %>
       <div class="betcam_wrap">
      <!--  <a href="<%#=home_index_path%>" class="active">Home</a> -->
       <!-- <span><%#= image_tag 'right_arrow_03.png'%></span>
@@ -19,8 +52,9 @@
             
               <div><%= image_tag 'main cake.jpg'%></div>
               <h3>Ingredients:</h3>
-              <ul class="product_lists">
-              
+              <div >
+              <ul class="product_lists" >
+                
                 <li>
 
                     <%= image_tag 'download (6).jpg', :style => 'height:100px' %><br>
@@ -29,9 +63,10 @@
                     <br>
                     <span>Quantity:</span>
                   
-                    <%= text_field_tag 'quant[0]','', :style => "width:22px;" %>
+                    <%= text_field_tag 'quant[0]','', :style => "width:22px;", 
+                    :id => 'quantity'  %>
                     <span>Price:</span>
-                    <%= text_field_tag 'price[0]','12', :style => "width:22px;" %>
+                    <%= text_field_tag 'price[0]','12',:readonly => true, :style => "width:22px;" %>
                     <%= hidden_field_tag 'user[0]',current_user.id %>
                 </li>
                 <li>
@@ -55,7 +90,7 @@
                   
                     <%= text_field_tag 'quant[2]','', :style => "width:22px;" %>
                     <span>Price:</span>
-                    <%= text_field_tag 'price[2]','12', :style => "width:22px;" %>
+                    <%= text_field_tag 'price[2]','12',:readonly => true, :style => "width:22px;" %>
                     <%= hidden_field_tag 'user[2]',current_user.id %>
 
                 </li>
@@ -68,7 +103,7 @@
                   
                     <%= text_field_tag 'quant[3]','', :style => "width:22px;" %>
                     <span>Price:</span>
-                    <%= text_field_tag 'price[3]','12', :style => "width:22px;" %>
+                    <%= text_field_tag 'price[3]','12',:readonly => true, :style => "width:22px;" %>
                     <%= hidden_field_tag 'user[3]',current_user.id %>
                 </li>
                 <li>
@@ -80,11 +115,11 @@
                   
                     <%= text_field_tag 'quant[4]','', :style => "width:22px;" %>
                     <span>Price:</span>
-                    <%= text_field_tag 'price[4]','12', :style => "width:22px;" %>
+                    <%= text_field_tag 'price[4]','12', :readonly => true, :style => "width:22px;" %>
                     <%= hidden_field_tag 'user[4]',current_user.id %>
                 </li>
               <div class="clear_fix"></div>
-              
+              </div>
               </ul>
             
             </div><!--product_inner_left-->
@@ -98,7 +133,7 @@
                    
                    <div class="price_value">$<%#=@homes. price%> 30<span>$50</span></div>
                    <div class="price_discount">Extra $5 Off Ends 12/1</div>
-                   <div><%= submit_tag 'Buy',:class => 'buy_wrap'%></div>
+                   <div><%= submit_tag 'Buy',:class => 'buy_wrap', :onclick => "return validateform()"%></div>
                    </li>
                    <!-- <div class="give_gift"><a href="#"><%#= image_tag 'service_center_10.png'%>GIVE AS A GIFT</a></div> -->
                    <%#= submit_tag 'Create an account'%>
@@ -206,3 +241,20 @@
      <%end%>
       </div>
      </div>
+
+
+//     <script language="javascript">
+
+//       function validateform()
+//       alert(); 
+//       {
+//       var cake1 = document.getElementById('cake1').value;
+
+//     if (cake1 == "")
+//       {
+//         alert('Please provide first name');
+//        return false;
+//       }
+
+     
+// }</script>

@@ -32,7 +32,7 @@
                   
                   <%= text_field_tag 'quant[0]','', :style => "width:22px;" %>
                   <span>Price:</span>
-                  <%= text_field_tag 'price[0]','12', :style => "width:22px;" %>
+                  <%= text_field_tag 'price[0]','12',:readonly => true, :style => "width:22px;" %>
                   <%= hidden_field_tag 'user[0]',current_user.id %>
                 </li>
                 <li>
@@ -44,7 +44,7 @@
                   <span>Quantity:</span>
                  <%= text_field_tag 'quant[1]','', :style => "width:22px;" %>
                  <span>Price:</span>
-                 <%= text_field_tag 'price[1]','12', :style => "width:22px;" %>
+                 <%= text_field_tag 'price[1]','12',:readonly => true, :style => "width:22px;" %>
                  <%= hidden_field_tag 'user[1]',current_user.id %>
                 </li>
                 <li>
@@ -56,7 +56,7 @@
                   <span>Quantity:</span>
                   <%= text_field_tag 'quant[2]','', :style => "width:22px;" %>
                   <span>Price:</span>
-                  <%= text_field_tag 'price[2]','12', :style => "width:22px;" %>
+                  <%= text_field_tag 'price[2]','12',:readonly => true, :style => "width:22px;" %>
                   <%= hidden_field_tag 'user[2]',current_user.id %>
                 </li>
                 <li>
@@ -68,7 +68,7 @@
                   <span>Quantity:</span>
                   <%= text_field_tag 'quant[3]','', :style => "width:22px;" %>
                   <span>Price:</span>
-                  <%= text_field_tag 'price[3]','12', :style => "width:22px;" %>
+                  <%= text_field_tag 'price[3]','12',:readonly => true, :style => "width:22px;" %>
                   <%= hidden_field_tag 'user[3]',current_user.id %>
                 </li>
                 <!-- <li><%#= image_tag '.jpg'%> <br>
@@ -88,7 +88,9 @@
                    
                    <div class="price_value">$<%#=@homes. price%> 30<span>$50</span></div>
                    <div class="price_discount">Extra $5 Off Ends 12/1</div>
-                   <div><%= submit_tag 'Buy',:class => 'buy_wrap'%></div>
+                   <div>
+                   <%= submit_tag 'Buy',:class => 'buy_wrap', :onclick =>"return validateform()"%>
+                   </div>
                    
                   </li>
                 
@@ -139,3 +141,9 @@
      <% end %>
       </div>
      </div>
+<script type="text/javascript">
+  function validateform()
+  {
+    
+  }
+</script>
